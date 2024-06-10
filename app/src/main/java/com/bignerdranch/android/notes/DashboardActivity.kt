@@ -68,6 +68,10 @@ class DashboardActivity : AppCompatActivity() {
                     return@setNavigationItemSelectedListener true
                 }
 
+                R.id.nav_exit -> {
+                    navController.navigate(R.id.action_notes_book_to_sign_in)
+                }
+
             }
             false
         }
