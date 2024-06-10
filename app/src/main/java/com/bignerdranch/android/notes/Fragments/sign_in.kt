@@ -12,6 +12,7 @@ import androidx.core.text.isDigitsOnly
 import android.os.Handler
 import android.os.Looper
 import android.view.KeyEvent
+import android.widget.ProgressBar
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -27,6 +28,7 @@ class sign_in() : Fragment(){
     private lateinit var navController: NavController
     private lateinit var mAuth: FirebaseAuth
     private lateinit var binding: SignInBinding
+    private lateinit var ProgressBar: ProgressBar
 
     private var doubleBackToExitPressedOnce = false
 
@@ -77,8 +79,11 @@ class sign_in() : Fragment(){
 
             val email = binding.emailIn.text.toString()
             val password = binding.passwordIn.text.toString()
+            ProgressBar = binding.progressBarSignIn!!
+
             if(email.isNotEmpty() && password.isNotEmpty()){
                 Autentification(email,password)
+                ProgressBar.visibility = View.VISIBLE
             }
             else{
                 Toast.makeText(context, "Введите логин и пароль",Toast.LENGTH_SHORT).show()
@@ -98,6 +103,7 @@ class sign_in() : Fragment(){
             else{
                 Toast.makeText(context,"Пользователь не зарегистрирован",Toast.LENGTH_SHORT).show()
             }
+            ProgressBar.visibility = View.GONE
         }
     }
 
