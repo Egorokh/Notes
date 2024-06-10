@@ -10,6 +10,7 @@ import android.widget.Toast
 import android.os.Handler
 import android.os.Looper
 import android.view.KeyEvent
+import android.widget.ProgressBar
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
@@ -23,6 +24,7 @@ class sign_up : Fragment(){
     private lateinit var navController: NavController
     private lateinit var mAuth: FirebaseAuth
     private lateinit var binding: SignUpBinding
+    private lateinit var ProgressBar: ProgressBar
 
     private var doubleBackToExitPressedOnce = false
 
@@ -60,6 +62,7 @@ class sign_up : Fragment(){
 
         binding.entry.setOnClickListener {
             navController.navigate(R.id.action_sign_up_to_sign_in)
+
         }
 
         var isProcessing = false
@@ -74,10 +77,13 @@ class sign_up : Fragment(){
             val email = binding.emailUp.text.toString()
             val password = binding.passwordUp.text.toString()
             val verifyPassword = binding.verifyPasswordUp.text.toString()
+            val name = binding.NameUp.text.toString()
+            ProgressBar = binding.progressBar?: return@setOnClickListener
 
-            if(email.isNotEmpty() && password.isNotEmpty() && verifyPassword.isNotEmpty()){
+            if(email.isNotEmpty() && password.isNotEmpty() && verifyPassword.isNotEmpty() && name.isNotEmpty()){
                 if(password == verifyPassword){
                     registrationUser(email, password)
+                    ProgressBar.visibility = View.VISIBLE
                 }
                 else{
                     Toast.makeText(context,"Пароли не сходятся",Toast.LENGTH_SHORT).show()
@@ -95,6 +101,7 @@ class sign_up : Fragment(){
     private fun registrationUser(email: String, password: String){
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
             if(it.isSuccessful){
+                ProgressBar.visibility = View.GONE
                 navController.navigate(R.id.action_sign_up_to_notes_book)
             }
             else{
