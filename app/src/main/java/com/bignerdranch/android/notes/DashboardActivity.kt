@@ -1,13 +1,16 @@
 package com.bignerdranch.android.notes
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.bignerdranch.android.notes.UI.about.nav_about
 import com.bignerdranch.android.notes.databinding.ActivityDashboardBinding
 import com.bignerdranch.android.notes.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
@@ -41,20 +44,32 @@ class DashboardActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         //фрагменты для которых не показываем боковое меню
-        navController.addOnDestinationChangedListener{_,destination,_ ->
+        navController.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.id in setOf(
                     R.id.loading_app,
                     R.id.sign_in,
                     R.id.sign_up
                 )
-            ){
+            ) {
                 drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
                 supportActionBar?.hide()
-            }else{
+            } else {
                 drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
                 supportActionBar?.show()
             }
+        }
 
+        navView.setNavigationItemSelectedListener { menuItem ->
+            when(menuItem.itemId){
+                // Обработчик нажатия на элемент меню "О приложении"
+                R.id.nav_about -> {
+                    startActivity(Intent(this, nav_about::class.java))
+                    drawerLayout.closeDrawer(GravityCompat.START)
+                    return@setNavigationItemSelectedListener true
+                }
+
+            }
+            false
         }
     }
 
