@@ -43,7 +43,7 @@ android {
 }
 
 dependencies {
-    implementation ("com.google.firebase:firebase-database:19.2.1")
+    implementation ("com.google.firebase:firebase-database:20.3.0")
 
     //для работы с бд
     implementation ("androidx.room:room-ktx:2.5.1")
