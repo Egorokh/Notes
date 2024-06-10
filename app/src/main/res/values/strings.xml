@@ -20,6 +20,9 @@
     <string name="nav_about">О приложении</string>
     <string name="nav_exit">Выход</string>
 
+    <string name="about_version_app">Версия 0.0.1</string>
+    <string name="about_avtor_app">Разработчик: Egor Balyberdin</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

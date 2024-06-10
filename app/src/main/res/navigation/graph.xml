@@ -45,4 +45,8 @@
         android:name="com.bignerdranch.android.notes.notes_book"
         android:label="Заметки"
         tools:layout="@layout/notes_book" />
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="com.bignerdranch.android.notes.UI.about.nav_about"
+        android:label="О приложении" />
 </navigation>
