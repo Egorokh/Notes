@@ -22,6 +22,7 @@ import com.bignerdranch.android.notes.DataBase.NotesDataBase
 import com.bignerdranch.android.notes.DataBase.NotesViewModel
 import com.bignerdranch.android.notes.R
 import com.bignerdranch.android.notes.databinding.NotesBookBinding
+import com.bignerdranch.android.notes.databinding.SignInBinding
 import com.bignerdranch.android.notes.databinding.SignUpBinding
 import com.google.firebase.auth.FirebaseAuth
 
