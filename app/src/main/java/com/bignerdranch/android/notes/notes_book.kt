@@ -31,7 +31,6 @@ class notes_book : AppCompatActivity(), NotesAdaptor.NoteClickListener{
         private lateinit var database: NotesDataBase
         lateinit var viewModel: NotesViewModel
         lateinit var adapter: NotesAdaptor
-
         private var doubleBackToExitPressedOnce = false
 
         //выход из приложения
@@ -47,9 +46,6 @@ class notes_book : AppCompatActivity(), NotesAdaptor.NoteClickListener{
                 }, 2000)
             }
         }
-
-
-
 
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
