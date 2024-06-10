@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fon"
-    tools:context=".Fragments.sign_up">
+    android:background="@color/color_for_PrimaryVariant"
+    tools:context=".presentation.fragments.SignUp">
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -67,7 +67,6 @@
                 android:layout_height="50dp"
                 android:background="@color/white"
                 android:textColorHint="@color/color_for_hint"
-                android:textCursorDrawable="@color/black"
                 android:textColor="@color/black"
                 android:hint="@string/name"
                 android:inputType="textPersonName"
@@ -89,7 +88,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardView1">
-
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -114,8 +112,8 @@
                 android:paddingTop="15dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
-    </com.google.android.material.card.MaterialCardView>
 
+    </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardView3"
@@ -182,7 +180,6 @@
                 android:layout_height="50dp"
                 android:background="@color/white"
                 android:textColorHint="@color/color_for_hint"
-                android:textCursorDrawable="@color/black"
                 android:textColor="@color/black"
                 android:hint="@string/enter_your_email"
                 android:inputType="textEmailAddress"
@@ -191,6 +188,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
     </com.google.android.material.card.MaterialCardView>
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"

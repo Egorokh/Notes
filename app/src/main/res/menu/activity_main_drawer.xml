@@ -7,18 +7,17 @@
         <item
             android:id="@+id/notes_book"
             android:icon="@drawable/ic_baseline_notes_24"
-            android:title="@string/nav_notes"
-            />
+            android:title="@string/nav_notes" />
         <item
             android:id="@+id/nav_archives"
-            android:icon="@drawable/ic_baseline_archive_24"
-            android:title="@string/nav_archives"/>
+            android:icon="@drawable/archive"
+            android:title="@string/nav_archives" />
         <item
             android:id="@+id/nav_trash"
-            android:icon="@drawable/ic_baseline_delete_24"
-            android:title="@string/nav_trash"
-            />
+            android:icon="@drawable/delete"
+            android:title="@string/nav_trash" />
     </group>
+
     <item android:title="Приложение">
         <menu>
             <item
@@ -39,5 +38,8 @@
                 android:icon="@drawable/ic_baseline_exit_to_app_24"
                 android:title="@string/nav_exit" />
         </menu>
+
     </item>
+
+
 </menu>

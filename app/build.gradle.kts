@@ -4,6 +4,7 @@ plugins {
     id ("org.jetbrains.kotlin.android")
     id ("com.google.gms.google-services")
     id ("kotlin-kapt")
+    id ("com.google.dagger.hilt.android")
 }
 
 android {
@@ -48,9 +49,9 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
 
     //для работы с бд
-    implementation ("androidx.room:room-ktx:2.5.1")
-    implementation ("androidx.room:room-runtime:2.5.1")
-    kapt ("androidx.room:room-compiler:2.5.1")
+    implementation ("androidx.room:room-ktx:2.6.1")
+    implementation ("androidx.room:room-runtime:2.6.1")
+    kapt ("androidx.room:room-compiler:2.6.1")
     //для работы с жизненным циклом
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
@@ -75,4 +76,11 @@ dependencies {
     implementation ("androidx.navigation:navigation-ui-ktx:2.5.3")
 
     implementation ("com.airbnb.android:lottie:6.3.0")
+    implementation ("com.google.dagger:hilt-android:2.44")
+    kapt ("com.google.dagger:hilt-compiler:2.44")
+    implementation ("androidx.fragment:fragment-ktx:1.6.2")
+}
+
+kapt {
+    correctErrorTypes = true
 }

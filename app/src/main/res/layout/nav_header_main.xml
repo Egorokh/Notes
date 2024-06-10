@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="190dp"
+    android:layout_height="130dp"
     android:background="?attr/colorOnPrimary"
     android:gravity="bottom"
     android:orientation="vertical"
@@ -11,28 +12,16 @@
     android:paddingRight="8dp"
     android:paddingBottom="8dp">
 
-    <ImageView
-        android:id="@+id/nav_header_image"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginStart="-10dp"
-        android:layout_marginTop="3dp"
-        android:padding="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_brightness_1_24" />
-
     <TextView
         android:id="@+id/nav_header_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Егор"
-        android:textSize="20dp"
-        android:textStyle="bold"
+        android:text="Гость"
+        android:textSize="26dp"
         android:textColor="?attr/colorPrimary"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nav_header_image" />
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/nav_header_gmail"
@@ -41,7 +30,7 @@
         android:layout_marginStart="16dp"
         android:textColor="?attr/colorPrimary"
         android:layout_marginTop="4dp"
-        android:text="semenov.matvej2017@gmal.com"
+        android:text="пустой"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nav_header_name" />
 
