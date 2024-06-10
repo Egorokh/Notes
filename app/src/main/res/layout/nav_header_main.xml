@@ -27,9 +27,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Матвей"
+        android:text="Егор"
         android:textSize="20dp"
         android:textStyle="bold"
+        android:textColor="?attr/colorPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nav_header_image" />
 
@@ -38,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-
+        android:textColor="?attr/colorPrimary"
         android:layout_marginTop="4dp"
         android:text="semenov.matvej2017@gmal.com"
         app:layout_constraintStart_toStartOf="parent"
