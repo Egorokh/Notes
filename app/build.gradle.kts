@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace = "com.bignerdranch.android.notes"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.bignerdranch.android.notes"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -69,4 +69,6 @@ dependencies {
 
     implementation ("androidx.navigation:navigation-fragment-ktx:2.5.3")
     implementation ("androidx.navigation:navigation-ui-ktx:2.5.3")
+
+    implementation ("com.airbnb.android:lottie:6.3.0")
 }
