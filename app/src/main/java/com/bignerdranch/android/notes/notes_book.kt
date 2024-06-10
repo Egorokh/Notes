@@ -26,67 +26,58 @@ import com.bignerdranch.android.notes.databinding.SignInBinding
 import com.bignerdranch.android.notes.databinding.SignUpBinding
 import com.google.firebase.auth.FirebaseAuth
 
-class notes_book : AppCompatActivity(), NotesAdaptor.NoteClickListener{
+class notes_book : Fragment(), NotesAdaptor.NoteClickListener{
         private lateinit var binding: NotesBookBinding
         private lateinit var database: NotesDataBase
         lateinit var viewModel: NotesViewModel
         lateinit var adapter: NotesAdaptor
-        private var doubleBackToExitPressedOnce = false
 
-        //выход из приложения
-        override fun onBackPressed() {
-            if (doubleBackToExitPressedOnce) {
-                super.onBackPressed()
-                finishAffinity() // Завершить все активности приложения
-            } else {
-                this.doubleBackToExitPressedOnce = true
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = NotesBookBinding.inflate(inflater,container,false)
+        return binding.root
+    }
 
-                Handler(Looper.getMainLooper()).postDelayed({
-                    doubleBackToExitPressedOnce = false
-                }, 2000)
-            }
-        }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
-            setContentView(R.layout.notes_book)
-            binding = NotesBookBinding.inflate(layoutInflater)
-            setContentView(binding.root)
-
-            initUI()
+        initUI()
 
             viewModel = ViewModelProvider(
                 this,
-                ViewModelProvider.AndroidViewModelFactory.getInstance(application)
+                ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application)
             ).get(NotesViewModel::class.java)
 
-            viewModel.allNotes.observe(this){list ->
+            viewModel.allNotes.observe(viewLifecycleOwner){list ->
                 list?.let {
                     adapter.updateList(list)
                 }
             }
-            database = NotesDataBase.getDataBase(this)
+            database = NotesDataBase.getDataBase(requireContext())
         }
 
         private fun initUI(){
             binding.recyclerView.setHasFixedSize(true)
             binding.recyclerView.layoutManager =
-                LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
-            adapter = NotesAdaptor(this,this)
+                LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL,false)
+            adapter = NotesAdaptor(requireContext(),this)
             binding.recyclerView.adapter = adapter
 
             val getContent =
                 registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result ->
                     if(result.resultCode == Activity.RESULT_OK){
                         val note = result.data?.getSerializableExtra("note") as? EntityDataBase
-                        if(note != null){
+                        if (note != null) {
                             viewModel.insertNote(note)
                         }
                     }
                 }
 
             binding.addNote.setOnClickListener {
-                val intent = Intent(this, add_notes::class.java)
+                val intent = Intent(requireContext(), add_notes::class.java)
                 getContent.launch(intent)
             }
         }
@@ -105,7 +96,7 @@ class notes_book : AppCompatActivity(), NotesAdaptor.NoteClickListener{
                 }
             }
         override fun onNoteClicked(note: EntityDataBase){
-            val intent = Intent(this@notes_book,add_notes::class.java)
+            val intent = Intent(requireContext(),add_notes::class.java)
             intent.putExtra("current_note", note)
             UpdateOrDeleteNote.launch(intent)
         }
