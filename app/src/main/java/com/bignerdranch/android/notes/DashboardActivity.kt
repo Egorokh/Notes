@@ -1,9 +1,11 @@
 package com.bignerdranch.android.notes
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -30,6 +32,9 @@ class DashboardActivity : AppCompatActivity() {
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)
+
+        // ставить тему при открытии приложения
+        getThemeOpenApp()
 
         /*val userName = intent.getStringExtra("userName")
         val userEmail = intent.getStringExtra("userEmail")
@@ -93,5 +98,19 @@ class DashboardActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    private fun getThemeOpenApp(){
+        // Инициализируйте тему здесь, до загрузки активности
+        val isDarkTheme = getSavedThemeState()
+        if (isDarkTheme) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
+    }
+    private fun getSavedThemeState(): Boolean {
+        val sharedPreferences = getSharedPreferences("ThemePrefs", Context.MODE_PRIVATE)
+        return sharedPreferences.getBoolean("isDarkTheme", false)
     }
 }
