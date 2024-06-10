@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "369841964729",
+    "project_id": "notes-75a00",
+    "storage_bucket": "notes-75a00.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369841964729:android:e7603f858239ad51143d68",
+        "android_client_info": {
+          "package_name": "com.bignerdranch.android.notes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDX3vnNMyOW6V97F1_KFy-TeMzO0R6YjOo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

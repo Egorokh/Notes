@@ -5,20 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
-import androidx.core.text.isDigitsOnly
 import android.os.Handler
 import android.os.Looper
 import android.view.KeyEvent
 import android.widget.ProgressBar
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import com.bignerdranch.android.notes.R
-import com.bignerdranch.android.notes.databinding.ActivityMainBinding
 import com.bignerdranch.android.notes.databinding.SignInBinding
 import com.google.firebase.auth.FirebaseAuth
 

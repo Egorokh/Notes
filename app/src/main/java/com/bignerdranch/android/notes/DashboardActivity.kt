@@ -12,7 +12,6 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bignerdranch.android.notes.UI.about.nav_about
 import com.bignerdranch.android.notes.databinding.ActivityDashboardBinding
-import com.bignerdranch.android.notes.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
 
 class DashboardActivity : AppCompatActivity() {
