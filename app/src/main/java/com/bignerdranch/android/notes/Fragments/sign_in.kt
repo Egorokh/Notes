@@ -1,5 +1,6 @@
 package com.bignerdranch.android.notes.Fragments
 
+import android.content.Intent
 import androidx.fragment.app.Fragment
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,7 +13,9 @@ import android.view.KeyEvent
 import android.widget.ProgressBar
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import com.bignerdranch.android.notes.DashboardActivity
 import com.bignerdranch.android.notes.R
+import com.bignerdranch.android.notes.ReadData
 import com.bignerdranch.android.notes.databinding.SignInBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -77,6 +80,16 @@ class sign_in() : Fragment(){
 
             if(email.isNotEmpty() && password.isNotEmpty()){
                 Autentification(email,password)
+                /*val readData = ReadData()
+                readData.readUserDataByEmail(email){ userList ->
+                    for (user in userList){
+                        val userName = user.userName
+                        val userEmail = user.userEmail
+                        val intent = Intent(activity, DashboardActivity::class.java)
+                        intent.putExtra("userName",userName)
+                        intent.putExtra("userEmail",userEmail)
+                    }
+                }*/
                 ProgressBar.visibility = View.VISIBLE
             }
             else{
